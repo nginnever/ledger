@@ -116,8 +116,10 @@ function run() {
 }
 
 function createBlock(pool, state) {
+	console.log('Reviewing txs in pool:')
 	var block = {}
   for (var i = 0; i < pool.length; i++) {
+  	console.log('TX: ' + i)
   	console.log(pool[i].inputs)
   	var inputTotal = 0
   	var outputTotal = 0
@@ -126,31 +128,44 @@ function createBlock(pool, state) {
   			//see coinbase tx
   			console.log('coinbase:')
   			inputTotal = inputTotal + 400
+  			currentState['B'].unspent.pop()
+  			currentState['B'].balance -= pool[i].inputs[v].value
   		} else {
         // if (currentState[pool[i].inputs[v].address]
-        console.log('input:')
+        console.log('deducting inputs')
         if (currentState[pool[i].inputs[v].address].balance < pool[i].inputs[v].value)
 				  throw new Error('Transaction input invalid: not enough encumbered funds')
-			  console.log(pool[i].inputs[v].value)
+			  console.log('-' + pool[i].inputs[v].value)
+			  currentState[pool[i].inputs[v].address].unspent.pop()
+			  currentState[pool[i].inputs[v].address].balance -= pool[i].inputs[v].value
         inputTotal = inputTotal + pool[i].inputs[v].value
   		}
   	}
     for (var z = 0; z < pool[i].outputs.length; z++) {
+    	// check here for genesis block bug
     	// if (pool[i].outputs[z].value) {
 
     	// }
     	outputTotal = outputTotal + pool[i].outputs[z].value
     	currentState[pool[i].outputs[z].address].balance += pool[i].outputs[z].value
+    	currentState[pool[i].outputs[z].address].unspent.push({
+        UTXO_id: 4,
+        input_tx: '2sdfsd3f3', // coinbase, hash of the transaction that created this input 
+        value: pool[i].outputs[z].value
+      })
     	console.log('adding output value:')
-    	console.log(outputTotal)
+    	console.log('+' + outputTotal)
     } 
     console.log('end tx analysis:')
     console.log('input total: '+ inputTotal)
     console.log('output total: '+ outputTotal)
+    console.log('-------------------')
     if (inputTotal < outputTotal) {
       throw new Error('Not enough input funds for ouput of tx:')
     }
   }
+  console.log('New client state:')
+  console.log(currentState)
   console.log('Transactions confirmed, broadcasting block:')
   console.log('Blockchain:')
   console.log(addBlock(tx_pool))
