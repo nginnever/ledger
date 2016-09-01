@@ -54,7 +54,6 @@ output of simulation run
 Running transaction simulation:
 Initializing state:
 State:
-
 { 
   A: { unspent: [], balance: 0 },
   B: { unspent: [ [Object], [Object] ], balance: 500 },
@@ -77,7 +76,6 @@ Reviewing txs in pool:
 
 tx1:
 input txs:
-
 [ 
   { 
     address: 'X',
@@ -99,7 +97,6 @@ output total: 400
 
 tx2:
 input txs:
-
 [ 
   { 
     address: 'C',
