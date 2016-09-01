@@ -1,0 +1,22 @@
+{
+  "name": "ledger",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nginnever/ledger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nginnever/ledger/issues"
+  },
+  "homepage": "https://github.com/nginnever/ledger#readme",
+  "dependencies": {
+    "immutable": "^3.8.1"
+  }
+}
