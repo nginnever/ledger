@@ -61,6 +61,9 @@ Setting initial transaction pool:
   { inputs: [ [Object], [Object] ],
     outputs: [ [Object], [Object] ] } ]
 Simulating first block transmission:
+Reviewing txs in pool:
+tx1:
+input txs:
 [ { address: 'X',
     input_UTXO_id: 0,
     sig: 'a2d2d2emk3mk3k33',
@@ -73,6 +76,9 @@ adding output value:
 end tx analysis:
 input total: 400
 output total: 400
+-------------------
+tx2:
+input txs:
 [ { address: 'C',
     input_UTXO_id: 2,
     sig: 'a2d2d2emk3mk3k33',
@@ -92,7 +98,12 @@ adding output value:
 end tx analysis:
 input total: 500
 output total: 500
+-------------------
 Transactions confirmed, broadcasting block:
+New client state:
+{ A: { unspent: [ [Object] ], balance: 400 },
+  B: { unspent: [ [Object] ], balance: 100 },
+  C: { unspent: [ [Object] ], balance: 100 } }
 Blockchain:
 List [ "[{\"inputs\":[{\"address\":\"X\",\"input_UTXO_id\":0,\"sig\":\"a2d2d2emk3mk3k33\",\"value\":400}],\"outputs\":[{\"address\":\"C\",\"value\":300,\"sig\":\"f34f3v3c\"},{\"address\":\"B\",\"value\":100,\"sig\":\"feef3c46c\"}]},{\"inputs\":[{\"address\":\"C\",\"input_UTXO_id\":2,\"sig\":\"a2d2d2emk3mk3k33\",\"value\":200},{\"address\":\"C\",\"input_UTXO_id\":3,\"sig\":\"a2d2d2emk3mk3k33\",\"value\":300}],\"outputs\":[{\"address\":\"A\",\"value\":400,\"sig\":\"f34f3v3c\"},{\"address\":\"C\",\"value\":100,\"sig\":\"feef3c46c\"}]}]" ]
 ```
