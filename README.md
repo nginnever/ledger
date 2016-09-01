@@ -45,6 +45,18 @@ this transaction until it sees the missing one.
 
 Clients will need to maintain their transaction pool and view of the state as they read operations from blocks. If a transaction is broadcast that the client has already seen, or contains a tx with inputs that have not been played out in the client state, it will reject the transaction as it is updating. A client will not be able to confirm blocks unless it has ran through the entire history (no SPV here or prunning in this example) and played out the transaction operations to maintain an updated view of the state of transactions.
 
+##Scalability
+
+A system as described above will have two fileds of concerns when dealing with scalability.
+
+####Network
+
+Possible network architectures have not yet been discussed in this simulation. There is a large field of study on bandwidth costs in distributed systems. Assume the network in place is using a gossip protocol. Overheads such as broadcasting messages to nodes that have already received those messages need to be considered. Gossiping to gain information about the network in an attempt to reduce this could result in more network calls. There are protocols to reduce this load by aggregating information with different methods.
+
+####Storage
+
+Something to note about an immutable database is the size of the log. Since the log is append only it will continue to grow at the speed of transaction confirmation. In Satoshi's paper he describes "pruning", a way to delete unnecessary data about transactions that are fully spent. This can help reduce the amount of data needed to be stored by full validation clients. Using simple payment verification systems can also greatly reduce the log size. 
+
 
 ##Prototype
 
