@@ -43,6 +43,9 @@ The accounts are A, B, and C and their balances reflect the transactions created
 transactions are played out of order where C tries to spend inputs the client hasn't seen yet, the client will reject
 this transaction until it sees the missing one.
 
+Clients will need to maintain their transaction pull and view of the state as they read operations from blocks. If a transaction is broadcast that the client has already seen, it will reject the transaction. A client will not be able 
+to confirm blocks unless it has ran through the entire history (no SPV here or prunning in this example) and played out the transaction operations to maintain an updated view of the state of transactions.
+
 
 ##Prototype
 
