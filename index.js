@@ -16,8 +16,8 @@ var tx_pool = []
 
 // simulate client witnessing transactions and appending to global ledger
 function run() {
-	console.log('Running transaction simulation')
-	console.log('Initializing state')
+	console.log('Running transaction simulation:')
+	console.log('Initializing state:')
 	// set coinbase and initial state
 	A.unspent = []
 	A.balance = 0
@@ -50,7 +50,7 @@ function run() {
   console.log(currentState)
 
   // Set initial tx pool
-  console.log('Setting initial transaction pool')
+  console.log('Setting initial transaction pool:')
   const tx1 = {
   	inputs: [
       {
@@ -109,7 +109,7 @@ function run() {
 
   console.log(tx_pool)
 
-  console.log('Simulating first block transmission')
+  console.log('Simulating first block transmission:')
   // assume the tx pool only has one tx in it per block
   var newState = createBlock(tx_pool, currentState)
   currentState = newState
@@ -124,11 +124,11 @@ function createBlock(pool, state) {
   	for (var v = 0; v < pool[i].inputs.length; v++) {
   		if (pool[i].inputs[v].address == 'X') {
   			//see coinbase tx
-  			console.log('coinbase')
+  			console.log('coinbase:')
   			inputTotal = inputTotal + 400
   		} else {
         // if (currentState[pool[i].inputs[v].address]
-        console.log('input')
+        console.log('input:')
         if (currentState[pool[i].inputs[v].address].balance < pool[i].inputs[v].value)
 				  throw new Error('Transaction input invalid: not enough encumbered funds')
 			  console.log(pool[i].inputs[v].value)
@@ -141,21 +141,23 @@ function createBlock(pool, state) {
     	// }
     	outputTotal = outputTotal + pool[i].outputs[z].value
     	currentState[pool[i].outputs[z].address].balance += pool[i].outputs[z].value
-    	console.log('adding output value')
+    	console.log('adding output value:')
     	console.log(outputTotal)
     } 
-    console.log('end tx analysis')
+    console.log('end tx analysis:')
     console.log('input total: '+ inputTotal)
     console.log('output total: '+ outputTotal)
     if (inputTotal < outputTotal) {
-      throw new Error('Not enough input funds for ouput of tx')
+      throw new Error('Not enough input funds for ouput of tx:')
     }
   }
-  console.log('Transactions confirmed, broadcasting block')
-  addBlock(tx_pool)
+  console.log('Transactions confirmed, broadcasting block:')
+  console.log('Blockchain:')
+  console.log(addBlock(tx_pool))
 }
 
 function addBlock(pool) {
-
+  blockchain = blockchain.push(JSON.stringify(pool))
+  return blockchain
 }
 run()
