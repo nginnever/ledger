@@ -43,3 +43,15 @@ The accounts are A, B, and C and their balances reflect the transactions created
 transactions are played out of order where C tries to spend inputs the client hasn't seen yet, the client will reject
 this transaction until it sees the missing one.
 
+
+##Prototype
+
+output of simulation run
+
+
+##Fail Case
+
+To test the fail case, you can change the variable names of the transactions so that the pool picks them up in the
+reverse order.  This will cause a case were account C is trying to spend more in its input transactions than the current
+view of the state says that C has.
+
