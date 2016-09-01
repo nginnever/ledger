@@ -120,7 +120,7 @@ deduction from inputs:
 adding output value:
 +400
 adding output value:
-+500
++100
 end tx analysis:
 input total: -500
 output total: +500
