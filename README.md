@@ -86,13 +86,15 @@ input txs:
 ]
     
 coinbase:
+deduction from inputs
+-400
 adding output value:
-300
++300
 adding output value:
-400
++100
 end tx analysis:
-input total: 400
-output total: 400
+input total: -400
+output total: +400
 -------------------
 
 tx2:
@@ -111,17 +113,17 @@ input txs:
   } 
 ]
     
-input:
-200
-input:
-300
+deduction from inputs:
+-200
+deduction from inputs:
+-300
 adding output value:
-400
++400
 adding output value:
-500
++500
 end tx analysis:
-input total: 500
-output total: 500
+input total: -500
+output total: +500
 -------------------
 
 Transactions confirmed, broadcasting block:
