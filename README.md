@@ -55,7 +55,7 @@ Possible network architectures have not yet been discussed in this simulation. T
 
 ####Storage
 
-Something to note about an immutable database is the size of the log. Since the log is append only it will continue to grow at the speed of transaction confirmation. In Satoshi's paper he describes "pruning", a way to delete unnecessary data about transactions that are fully spent. This can help reduce the amount of data needed to be stored by full validation clients. Using simple payment verification systems can also greatly reduce the log size. 
+Something to note about an immutable database is the size of the log. Since the log is append only it will continue to grow at the speed of transaction confirmation. In Satoshi's paper he describes "pruning", a way to delete unnecessary data about transactions that are fully spent. This can help reduce the amount of data needed to be stored by full validation clients. 
 
 
 ##Prototype
