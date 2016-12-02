@@ -3,7 +3,7 @@ an immutable transaction ledger (this is a thought experiment for developing blo
 
 ##Requirements
 
-- No double spending
+- No double spending.
 - Clients should reject tx's that don't agree with their view of the state
 - UTXOs must be fully spent
 - Change is sent back as another UTXO back to origin
