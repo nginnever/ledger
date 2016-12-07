@@ -12,7 +12,7 @@ an immutable transaction ledger (this is a thought experiment for developing blo
 - Balance is a collection of UTXOs spent to address
 - Transactions will be rejected if sum inputs < sum outputs
 - All out puts have an input tx
-- The coinbase transaction is the only tx to violate this rule
+- The coinbase transaction is the only tx to violate this rule.
 
 
 ##Design
