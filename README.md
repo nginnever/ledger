@@ -6,7 +6,7 @@ an immutable transaction ledger (this is a thought experiment for developing blo
 - No double spending.
 - Clients should reject tx's that don't agree with their view of the state
 - UTXOs must be fully spent
-- Change is sent back as another UTXO back to origin
+- Change is sent back as another UTXO back to origin.
 - The block state is immutable, append only
 - Balance must be maintained for each address 
 - Balance is a collection of UTXOs spent to address
