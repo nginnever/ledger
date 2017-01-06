@@ -1,5 +1,5 @@
 # ledger
-an immutable transaction ledger (this is a thought experiment for developing blockchains)
+an immutable transaction ledger (this is a thought experiment for developing blockchains).
 
 ##Requirements
 
