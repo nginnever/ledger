@@ -9,7 +9,7 @@ an immutable transaction ledger (this is a thought experiment for developing blo
 - Change is sent back as another UTXO back to origin.
 - The block state is immutable, append only.
 - Balance must be maintained for each address.
-- Balance is a collection of UTXOs spent to address
+- Balance is a collection of UTXOs spent to address.
 - Transactions will be rejected if sum inputs < sum outputs
 - All out puts have an input tx
 - The coinbase transaction is the only tx to violate this rule.
