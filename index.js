@@ -8,8 +8,7 @@ var C = {}
 
 // Store this nodes view of the state in memory
 // I am not implementing permenant storage or
-// network calls updating state so it will only persist 
-// in memory
+// network calls updating state so it will only persist in memory
 var currentState = {}
 var blockchain = Immutable.List([])
 var tx_pool = []
